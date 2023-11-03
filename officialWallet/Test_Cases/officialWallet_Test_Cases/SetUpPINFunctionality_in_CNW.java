@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 import java.awt.Desktop; 
 
 import java.io.File;
@@ -33,6 +33,7 @@ import io.appium.java_client.android.connection.ConnectionState;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.touch.offset.PointOption;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import officialWallet.CreateNewWallet1;
 
 public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 	CreateNewWallet1 Test;
