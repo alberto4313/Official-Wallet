@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 
 import java.io.IOException;
 
@@ -14,6 +14,8 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import officialWallet.CreateNewWallet1;
+import officialWallet.Use_Existing_Wallet;
 
 public class Without_internet_connection extends DesiredCapabilitesOfDevice {
 	CreateNewWallet1 Test;
