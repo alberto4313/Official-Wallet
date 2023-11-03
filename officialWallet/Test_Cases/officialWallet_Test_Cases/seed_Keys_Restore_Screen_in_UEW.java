@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 
 import java.io.IOException;
 
@@ -13,6 +13,8 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.model.Media;
 
 import io.appium.java_client.AppiumBy;
+import officialWallet.CreateNewWallet1;
+import officialWallet.Use_Existing_Wallet;
 
 public class seed_Keys_Restore_Screen_in_UEW extends DesiredCapabilitesOfDevice{
 	CreateNewWallet1 Test;
