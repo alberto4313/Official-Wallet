@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 import java.io.IOException;
 import java.time.Duration;
 import org.openqa.selenium.By;
@@ -19,6 +19,9 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import officialWallet.CreateNewWallet1;
+import officialWallet.HomescreenPage;
+import officialWallet.Wallet_Settings;
 import scala.Equals;
 @SuppressWarnings({ "deprecation", "unused" })
 public class Homescreen_Functionality extends DesiredCapabilitesOfDevice{
