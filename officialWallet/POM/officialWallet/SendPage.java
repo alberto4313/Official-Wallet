@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;  
 import org.openqa.selenium.support.PageFactory;

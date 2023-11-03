@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet;
 
 import java.time.Duration;
 
