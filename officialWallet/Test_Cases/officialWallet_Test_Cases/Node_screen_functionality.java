@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 
 import java.io.IOException; 
 import java.time.Duration;
@@ -25,6 +25,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import officialWallet.CreateNewWallet1;
+import officialWallet.HomescreenPage;
+import officialWallet.NodesPage;
+import officialWallet.Wallet_Settings;
+import officialWallet.Wallets;
 
 public class Node_screen_functionality extends DesiredCapabilitesOfDevice{
 
