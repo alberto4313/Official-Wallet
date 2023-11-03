@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 
 import java.io.IOException;
 
@@ -11,6 +11,8 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import io.appium.java_client.AppiumBy;
+import officialWallet.CreateNewWallet1;
+import officialWallet.Use_Existing_Wallet;
 
 public class Restore_Wallet_Functionality_UEW extends DesiredCapabilitesOfDevice {
 	CreateNewWallet1 Test;
