@@ -4,9 +4,9 @@
   <test name="test1">
     <classes>
        
-      <class name="vee4.officialWallet.SetUpPINFunctionality_in_CNW"></class>
-      <class name="vee4.officialWallet.NewWalletFunctionality_in_CNW"></class>
-      <class name="vee4.officialWallet.SeedScreen"></class>
+      <class name="officialWallet_Test_Cases.SetUpPINFunctionality_in_CNW"></class>
+      <class name="officialWallet.NewWalletFunctionality_in_CNW"></class>
+      <class name="officialWallet.SeedScreen"></class>
     </classes>
   </test>
  </suite>
