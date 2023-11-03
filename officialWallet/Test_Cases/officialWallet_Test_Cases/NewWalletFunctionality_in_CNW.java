@@ -1,4 +1,4 @@
-package vee4.officialWallet;
+package officialWallet_Test_Cases;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +23,7 @@ import com.aventstack.extentreports.observer.entity.MediaEntity;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import officialWallet.CreateNewWallet1;
 public class NewWalletFunctionality_in_CNW extends DesiredCapabilitesOfDevice{
 	CreateNewWallet1 Test;
 	static final Logger logger = LogManager.getLogger();
