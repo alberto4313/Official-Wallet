@@ -21,24 +21,53 @@ public class AddressBook {
 
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Add\"]")
 	private WebElement Add;
+	
+	@AndroidFindBy(accessibility = "Address Book")
+	private  WebElement Addressbookbutton;
 	public AddressBook(AndroidDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	} 
 
-	public void clickOnAddAddress() {
-		addAddress.click();	}
-	public void clickOnEnterNameTextField() {
-		enterName.click();
+	public WebElement AddAddress() {
+		return addAddress;	}
+	public AddressBook clickOnAddAddress() {
+		this.AddAddress().click();	
+		return this;}
+	public WebElement EnterNameTextField() {
+		return enterName;
 	}
-	public void clickOnEnterAddressTextField() {
-		enterAddress.click();
+	public AddressBook ClickonEnterNameTextField() {
+		this.EnterNameTextField().click();;
+		return this;
 	}
-	public void clickOnResetButton() {
-		Reset.click();
+	public WebElement EnterAddressTextField() {
+		return enterAddress;
 	}
-	public void clickOnAddButton() {
-		Add.click();
+	public AddressBook clickOnEnterAddressTextField() {
+		this.EnterAddressTextField().click();;
+		return this;
+	}
+	public WebElement ResetButton() {
+		return Reset;
+	}
+	public AddressBook clickOnResetButton() {
+		this.ResetButton().click();;
+		return this;
+	}
+	public WebElement AddButton() {
+		return Add;
+	}
+	public AddressBook clickOnAddButton() {
+		this.AddButton();
+		return this;
+	}
+	public WebElement AddressbookButton() {
+		return Addressbookbutton;
+	}
+	public AddressBook clickOnAddressbookButton() {
+		this.AddressbookButton().click();
+		return this;
 	}
 
 }
