@@ -155,11 +155,11 @@ public class CreateNewWallet1 extends DesiredCapabilities{
 		this.SwitchBetweenPin().click();;
 		return this;
 	}
-	public WebElement Ok() {
+	public WebElement OK() {
 		return okButton;
 	}
-	public CreateNewWallet1 ClickOnOkButton() {
-		this.Ok().click();
+	public CreateNewWallet1 ClickOnOKButton() {
+		this.OK().click();
 		return this;
 	}
 	public WebElement p0() {
@@ -392,11 +392,11 @@ public class CreateNewWallet1 extends DesiredCapabilities{
 		return this;
 	}
 
-		public WebElement OkbuttoninUEW() {
+		public WebElement Okbutton() {
 			return okButton1;
 		}
-		public CreateNewWallet1 OkbuttoninUEWclick() {
-			this.OkbuttoninUEW().click();
+		public CreateNewWallet1 Okbuttclick() {
+			this.Okbutton().click();
 			return this;
 
 		}public CreateNewWallet1 DoubleTapGeneral(int a,int b) throws InterruptedException {
