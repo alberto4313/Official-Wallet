@@ -2,6 +2,8 @@ package officialWallet_Test_Cases;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,20 +14,19 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
 import officialWallet.CreateNewWallet1;
 import officialWallet.Use_Existing_Wallet;
 
 public class Without_internet_connection extends DesiredCapabilitesOfDevice {
 	CreateNewWallet1 Test;
 	Use_Existing_Wallet ExistingWallet;
-	@SuppressWarnings({ "rawtypes", "deprecation" })
+	public static Logger log=LogManager.getLogger(SetUpPINFunctionality_in_CNW.class);
+
+	
 	@Test
 	public void setup_screen() throws InterruptedException, IOException {
 	Test=new CreateNewWallet1(driver);
-	Test
-	.createNewWallet();
+	log.info("Testing in offline mode");
 	Thread.sleep(3000);
 	Test
 	.NavigateBACK();
@@ -51,7 +52,7 @@ Thread.sleep(1000);
 	try{Assert.assertTrue(driver.findElement(AppiumBy.accessibilityId("Biometric feature currenly disabled.Kindly enable allow biometric authentication feature inside the app settings")).isDisplayed());}catch(AssertionError e) {
 		test.fail(e);passFailScreenshot("202");}
 	
-	Test.OkbuttoninUEWclick();
+	Test.Okbuttclick();
 	test.log(Status.PASS,MarkupHelper.createLabel("1.Enter a value in the pin field", ExtentColor.GREEN));
 	Test.Enter_0()
 	.Enter_1()
@@ -92,7 +93,7 @@ Thread.sleep(2000);
 Thread.sleep(2000);
 test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");
 passFailScreenshot("Showing ");
-	Test.OkbuttoninUEWclick();
+	Test.Okbuttclick();
 	Thread.sleep(2000);	
 	for(int i=0;i<=5;i++) {
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Enter a 4 digit value", ExtentColor.GREEN));
@@ -113,7 +114,7 @@ test.log(Status.PASS, "<b>Showing message\"Pin is in correct\"<b> ");
 		try{Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(),"Not able to validate");}catch(Exception  e){
 			test.fail(e);
 		}
-		Test.OkbuttoninUEWclick();}
+		Test.Okbuttclick();}
 	test.log(Status.PASS,MarkupHelper.createLabel("1.Enter a 4 digit value", ExtentColor.GREEN));
 	Test
 	.Enter_0()
@@ -137,10 +138,10 @@ test.log(Status.PASS, "<b>Showing message\"Pin is in correct\"<b> ");
 	}
 test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");
 	passFailScreenshot("Showing");
-	Test.OkbuttoninUEWclick();
-	TouchAction touch1=new TouchAction(driver);
-	touch1.tap(PointOption.point(47,202)).perform();
-}
+	Test.Okbuttclick();
+	Test.tap(47,202);
+	log.info("Offline testing has been completed Turning on mobile WiFi connection and connected to WiFi network");
+	}
 	@Test
 	public void new_wallet_screen() throws InterruptedException, IOException {
 		Test=new CreateNewWallet1(driver);
@@ -159,7 +160,7 @@ test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");
 		.Enter_2()
 		.Enter_4()
 		.Enter_6()
-		.OkbuttoninUEWclick();
+		.Okbuttclick();
 		String Alberto=Test.Wallet_name().getText();
 		System.out.println(Alberto);
 		test.log(Status.PASS, MarkupHelper.createLabel("1.Check the wallet name",ExtentColor.GREEN));
@@ -175,7 +176,7 @@ test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");
 		.Enter_2()
 		.Enter_4()
 		.Enter_6()
-		.OkbuttoninUEWclick();
+		.Okbuttclick();
 		String Alberto1=Test.Wallet_name().getText();
 		System.out.println(Alberto1);
 		test.log(Status.PASS, MarkupHelper.createLabel("3.Check the Wallet name",ExtentColor.GREEN));
@@ -336,7 +337,7 @@ Thread.sleep(2000);
 		.Enter_2()
 		.Enter_4()
 		.Enter_6()
-		.OkbuttoninUEWclick();
+		.Okbuttclick();
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Click the back button",ExtentColor.GREEN));
 		try {Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"Recovery Seed/Key\"]")).isDisplayed(), "Not able to navigate back");}catch(Exception e) {passFailScreenshot("34");test.fail(e);}
 		ExistingWallet.Restore_from_SeedButton();
@@ -485,7 +486,8 @@ Thread.sleep(2000);
 		Test.passdate().clear();
 		Test.Send_keys("9/22/2023");
 		test.log(Status.PASS,MarkupHelper.createLabel("2.Select a invalid date.",ExtentColor.GREEN));
-		Test.ClickOnOkButton();
+		Test.ClickOnOKButton();
 		ExistingWallet.Reestore_Button();
+
 	}
 }
