@@ -1,49 +1,20 @@
 package officialWallet_Test_Cases;
-import java.awt.Desktop; 
-
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.bidi.Connection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.applitools.eyes.appium.Eyes;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
-
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.connection.ConnectionState;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.touch.offset.PointOption;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import jdk.internal.org.jline.utils.Log;
 import officialWallet.CreateNewWallet1;
-
 public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 	CreateNewWallet1 Test;
-	//Eyes eyes;
-
 	public static Logger log=LogManager.getLogger(SetUpPINFunctionality_in_CNW.class);
-
-
-	@SuppressWarnings({ "rawtypes", "deprecation", "static-access" })
 	@Test(priority=1)
 	public void TC_38() throws InterruptedException, IOException {
 		test=extent.createTest("Test Scenario:	To Check the working of the setup pin functionality in Create New Wallet", "<b><br /> Test case Id: TC_38<br />Test case description: Validate whether able to navigate back to the opening page</b>");
@@ -75,28 +46,26 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		.createNewWallet();
 		log.info("Clicked on Create New Wallet Button");
 		Test.KeyBoardisEnbled();
-		log.info("Keyboard is enabled");
-		
+		log.info("Keyboard is enabled");		
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Check the screen", ExtentColor.GREEN));
 		test.log(Status.INFO,"<b><font color='blue' size='2'>Keypad is enabled</font></b>");
 		System.out.println("Keypad is enabled");
 		try{Assert.assertTrue(Test.KeyBoard().isEnabled(),"Keyboard is not enabled");log.info("Having visual keyboard ");}catch(AssertionError e) {
-		log.error("Keyboard is not enabled ", new Exception("Keyboard is not enabled not able to Assert"));	test.fail(e);passFailScreenshot("21");
+			log.error("Keyboard is not enabled ", new Exception("Keyboard is not enabled not able to Assert"));	test.fail(e);passFailScreenshot("21");
 		}}
 	@Test(priority=3)
 	public void TC_48() throws IOException {
 		test=extent.createTest("Test Scenario:	To Check the working of the setup pin functionality in Create New Wallet", "<b><br /> Test case Id: TC_48<br />Test case description: Validate the working of the finger scanner</b>");
 		test.assignAuthor("Alberto");
 		test.assignCategory("Smoke Testing");
-		test.assignDevice("Redmi Note 9 Pro");
-		
+		test.assignDevice("Redmi Note 9 Pro");		
 		Test.BiometricScan();
 		log.info("Clicked on Biometric feature");
 		test.log(Status.PASS,MarkupHelper.createLabel("1.place any finger in the scan function", ExtentColor.GREEN));
 		test.log(Status.INFO,"<b><font color='blue' size='2'>showing content\"Go to settings and turn on the biometric function\"</font></b>");
 		passFailScreenshot("Biometric functions");
 		try{Assert.assertTrue(driver.findElement(AppiumBy.accessibilityId("Biometric feature currenly disabled.Kindly enable allow biometric authentication feature inside the app settings")).isDisplayed());log.info("Showing pop-up\n<b> Kindly enable allow biometric authentication feature inside the app settings,/b>");}catch(AssertionError e) {
-		log.error("Biometric not working ",new Exception("Clicked on scanner function but not showing any toast message to enable biometric feature"));	test.fail(e);passFailScreenshot("22");
+			log.error("Biometric not working ",new Exception("Clicked on scanner function but not showing any toast message to enable biometric feature"));	test.fail(e);passFailScreenshot("22");
 		}
 		Test.Okbuttclick();}
 	@Test(priority=4)
@@ -126,10 +95,9 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		log.info("Before switching, 4 digit PIN option is showing ");
 		Test
 		.switchBetweenPin();
-
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Click the 6 digit pin function", ExtentColor.GREEN));
 		try{Assert.assertTrue(driver.findElement(By.xpath("//android.widget.Button[@content-desc=\"Switch to 4-digit PIN\"]")).isDisplayed(),"Not swicthed to 6 digit pin");log.info("After switching, 6 digit PIN option is showing ");}catch(AssertionError e) {
-		log.error("Not able to swicth between the 4 and 6 digit options");	test.fail(e);passFailScreenshot("23");
+			log.error("Not able to swicth between the 4 and 6 digit options");	test.fail(e);passFailScreenshot("23");
 		}
 		Thread.sleep(2000);}
 	@Test(priority=6)
@@ -148,7 +116,6 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 	}
 	@Test(priority=7)
 	public void TC_44() throws InterruptedException, IOException {
-
 		test=extent.createTest("Test Scenario:	To Check the working of the setup pin functionality in Create New Wallet", "<b><br /> Test case Id: TC_44<br />Test case description: Validate the working of setup pin functionality by Valid pin Enter your Pin field and InValid Enter your pin again field.</b>");
 		test.assignAuthor("Alberto");
 		test.assignCategory("Smoke Testing");
@@ -168,7 +135,7 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		.Enter_6();
 		log.info("Entered different 4 digit PIN");
 		test.log(Status.PASS,MarkupHelper.createLabel("3.check the message", ExtentColor.GREEN));
-	try {	Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(), "Pin is incorrect is not dislayed");log.info("Showing PIN is incorrect ");}catch(Exception | AssertionError e) {log.info("Entered different 4 digit PIN",new Exception("Entered 4 digit different password but it is not showing any toast message")); test.fail(e);}
+		try {	Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(), "Pin is incorrect is not dislayed");log.info("Showing PIN is incorrect ");}catch(Exception | AssertionError e) {log.info("Entered different 4 digit PIN",new Exception("Entered 4 digit different password but it is not showing any toast message")); test.fail(e);}
 		Thread.sleep(2000);
 		test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");
 		passFailScreenshot("Showing ");
@@ -197,7 +164,6 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 			.Enter_4()
 			.Enter_6();
 			test.log(Status.PASS,MarkupHelper.createLabel("3.Check the message", ExtentColor.GREEN));
-
 			test.log(Status.PASS, "<b>Showing message\"Pin is in correct\"<b> ");
 			passFailScreenshot("Showing ");
 			try{Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(),"Not able to validate"); log.info("Showing PIN is incorrect ");}catch(AssertionError  e){
@@ -235,9 +201,7 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		try{Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(),"Not able to validate");test.log(Status.PASS, "<b>Showing message\"Pin is in correct\" <b>");log.info("Showing PIN is incorrect ");}catch(AssertionError e) {
 			log.info("Entered different PIN  value",new Exception("Entering a 4 digitPin in enter your pin field and Entering 6 digitPin Enter your pin Again field but PIN incorrect toast message is not showing"));	test.fail(e);passFailScreenshot("26");
 		}
-
 		passFailScreenshot("Showing");
-		
 		Test.Okbuttclick();
 		log.info("Confirmed the PIN incorrect toast message and clicked on Ok ");
 		Test.tap(47,202);
@@ -278,12 +242,11 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		test.log(Status.PASS,MarkupHelper.createLabel("4.Enter a 4 digit value", ExtentColor.GREEN));
 		try{Assert.assertTrue(driver.findElement(By.xpath("//android.view.View[@content-desc=\"PIN is incorrect\"]")).isDisplayed(),"Not able to validate");test.log(Status.PASS,MarkupHelper.createLabel("5.Check the message", ExtentColor.GREEN));log.info("Showing PIN is incorrect ");}catch(AssertionError e) {
 			log.info("Entered different PIN  value",new Exception("Entering a 6 digitPin in enter your pin field and Entering 4 digitPin Enter your pin Again field but PIN incorrect toast message is not showing"));	test.fail(e);passFailScreenshot("2.6");
-			
 		}Test.Okbuttclick();
 		log.info("Confirmed the PIN incorrect toast message and clicked on Ok ");
-}
+	}
 	@Test(dependsOnMethods = {"TC_47"})
-	public void Without_internet_connection() throws InterruptedException, IOException {
+	public void TC_54() throws InterruptedException, IOException {
 		test=extent.createTest("Test Scenario:	To Check the working of the setup pin functionality in Create New Wallet", "<b><br /> Test case Id: TC_54<br />Test case description: Validate the working of the screen activity without internet connection</b>");
 		test.assignAuthor("Alberto");
 		test.assignCategory("Smoke Testing");
@@ -294,14 +257,13 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		log.info("Turned off WiFi connection of device");
 		driver.navigate().back();
 		log.info("Navigated back");
-
 		test.log(Status.PASS,MarkupHelper.createLabel("2.Open the App", ExtentColor.GREEN));
 		Without_internet_connection set=new Without_internet_connection();
 		set.setup_screen();
 		test.log(Status.PASS,MarkupHelper.createLabel("3.Check the working of the screen function", ExtentColor.GREEN));
 	}
-	@Test(dependsOnMethods= {"Without_internet_connection"})
-	public void Validinput() throws InterruptedException, IOException {
+	@Test(dependsOnMethods= {"TC_54"})
+	public void TC_43() throws InterruptedException, IOException {
 		driver.toggleData();
 		Thread.sleep(4000);
 		driver.toggleWifi();
@@ -313,7 +275,6 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		Test
 		.createNewWallet();
 		log.info("Clicked on Create New Wallet Button");
-
 		Thread.sleep(3000);
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Enter a 4 digit value", ExtentColor.GREEN));
 		Test
@@ -322,7 +283,6 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		.Enter_4()
 		.Enter_6();
 		log.info("Entered a 4 digit PIN");
-
 		test.log(Status.PASS,MarkupHelper.createLabel("2.Enter a same value entered before", ExtentColor.GREEN));
 		Test
 		.Enter_0()
@@ -330,7 +290,6 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		.Enter_4()
 		.Enter_6();
 		log.info("Entered a same PIN entered before");
-
 		test.log(Status.PASS,MarkupHelper.createLabel("3.check the message", ExtentColor.GREEN));
 		Thread.sleep(2000);
 		test.log(Status.PASS, "<b>Showing message\"Your PIN has been setup successfully!\" <b>");
@@ -338,13 +297,13 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		List<WebElement> elements = driver.findElements(By.className("android.view.View"));
 		WebElement as=elements.get(0);
 		String aas=as.findElement(By.xpath("//android.view.View[@index=\"0\"]")).getAttribute("content-desc");
-	String SetuoPINMsg=	 aas.replaceAll("\\s","");
+		String SetuoPINMsg=	 aas.replaceAll("\\s","");
 		String SetupPINMessage="Your PIN has been set up \r\n"
 				+ "successfully!";
 		String ComparingSetupMsg=	SetupPINMessage.replaceAll("\\s","");
 		try{Assert.assertEquals(SetuoPINMsg,ComparingSetupMsg);log.info("<b>Showing message\"Your PIN has been setup successfully!\" <b>"); }catch(AssertionError e) {
-				log.error("Not showing PIN has been setup successfully message");	test.fail(e);passFailScreenshot("26");
-				}
+			log.error("Not showing PIN has been setup successfully message");	test.fail(e);passFailScreenshot("26");
+		}
 		Test.Okbuttclick();
 		log.info("Confirmed PIN has been  setup successfully message and clicked on Ok ");
 		Thread.sleep(2000);
