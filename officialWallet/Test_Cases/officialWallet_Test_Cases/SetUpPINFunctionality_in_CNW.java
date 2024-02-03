@@ -204,7 +204,7 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		passFailScreenshot("Showing");
 		Test.Okbuttclick();
 		log.info("Confirmed the PIN incorrect toast message and clicked on Ok ");
-		Test.tap(47,202);
+		Test.tap(79,286);
 		log.info("Navigated back to opening page");
 	}
 	@Test(priority=10)
@@ -252,8 +252,10 @@ public class SetUpPINFunctionality_in_CNW extends DesiredCapabilitesOfDevice {
 		test.assignCategory("Smoke Testing");
 		test.assignDevice("Redmi Note 9 Pro");
 		test.log(Status.PASS,MarkupHelper.createLabel("1.Turn off the device internet connection", ExtentColor.GREEN));
-		turn_Off Off=new turn_Off();
-		Off.Turn_Off_Data_Wifi();
+		driver.toggleAirplaneMode();
+		driver.toggleData();
+		/*turn_Off Off=new turn_Off();
+		Off.Turn_Off_Data_Wifi();*/
 		log.info("Turned off WiFi connection of device");
 		driver.navigate().back();
 		log.info("Navigated back");
